@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://kit.fontawesome.com/8a782c866a.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-base-200 max-w-md min-h-screen rounded-lg">
+    <nav class="flex justify-between items-center border-b-1 pb-2 p-6 pt-5">
+        <div class="flex">
+            <img class="h-12 w-12" src="assets/Group.png" alt="">
+            <div>
+                <h3 class="font-bold text-2xl">$45,000</h3>
+                <h5 class="text-gray-500">Available balance</h5>
+            </div>
+        </div>
+        <button id="logout-btn" class="border rounded-lg p-2 h-10 font-bold">Logout
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </button>
+    </nav>
+
+    <section class="mt-5 space-y-2 rounded-lg p-6 pt-5">
+        <h1 class="font-bold text-3xl">Welcome to Payooo</h1>
+        <p class="text-gray-500">Enjoy easy and convenient financial services with us. Cashout charge is low and.</p>
+        <div class="grid grid-cols-3 gap-3">
+            <div class="border border-gray-500 rounded-lg p-2">
+                <img class="mx-auto" src="assets/add-money.png" alt="add-money">
+                <p class="text-center">Add Money</p>
+            </div>
+            <div class="border border-gray-500 rounded-lg p-2">
+                <img class="mx-auto" src="assets/cash-out.png" alt="cash-out">
+                <p class="text-center">Cash out</p>
+            </div>
+            <div class="border border-gray-500 rounded-lg p-2">
+                <img class="mx-auto" src="assets/trasnsfer-money.png" alt="transfer-money">
+                <p class="text-center">Transfer</p>
+            </div>
+            <div class="border border-gray-500 rounded-lg p-2">
+                <img class="mx-auto" src="assets/get-bonous.png" alt="get-bonous">
+                <p class="text-center">Get Bonus</p>
+            </div>
+            <div class="border border-gray-500 rounded-lg p-2">
+                <img class="mx-auto" src="assets/pay-bill.png" alt="pay-bill">
+                <p class="text-center">Pay bill</p>
+            </div>
+            <div class="border border-gray-500 rounded-lg p-2">
+                <img class="mx-auto" src="assets/transaction.png" alt="transaction">
+                <p class="text-center">Transaction</p>
+            </div>
+        </div>
+    </section>
+    <section class="mt-5 bg-gray-200 p-4 px-5">
+        <div class="flex justify-between items-center">
+            <h2 class="text-2xl font-bold">Latest Payment</h2>
+            <a class="text-gray-600" href="">View All</a>
+        </div>
+    </section>
+    <script>
+        document.getElementById('logout-btn').addEventListener('click', function (value) {
+            event.preventDefault();
+            window.location.href = 'index.html';
+        })
+    </script>
+</body>
+
+</html>
