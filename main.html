@@ -39,9 +39,9 @@
                 <img class="mx-auto" src="assets/add-money.png" alt="add-money">
                 <p id="add-money-text" class="text-center">Add Money</p>
             </div>
-            <div class="rounded-lg border border-gray-300 p-2 cursor-pointer">
+            <div id="cash-out" class="rounded-lg border border-gray-300 p-2 cursor-pointer">
                 <img class="mx-auto" src="assets/cash-out.png" alt="cash-out">
-                <p class="text-center">Cash out</p>
+                <p id="cash-out-text" class="text-center">Cash Out</p>
             </div>
             <div class="rounded-lg border border-gray-300 p-2 cursor-pointer">
                 <img class="mx-auto" src="assets/trasnsfer-money.png" alt="transfer-money">
@@ -140,26 +140,70 @@
             </div>
         </div>
     </section>
+    <section id="cash-out-section" class="hidden mt-5  p-4 px-5">
+        <h1 class="font-bold text-2xl mb-5">Cashout Money</h1>
+        <div class="card bg-base-100 w-full max-w-sm shrink-0 mx-auto">
+            <div class="card-body">
+                <fieldset class="fieldset">
+                    <label for="bank">Bank</label>
+                    <select name="bank" id="bank">
+                        <option value="">---Select---</option>
+                        <option value="">Bkash</option>
+                        <option value="">Nagad</option>
+                        <option value="">Rocket</option>
+                    </select>
+                    <label for="ac-number">Account Number</label>
+                    <input type="number" id="ac-number" class="input" placeholder="Enter your account number" />
+                    <label for="amount">Amount to Add</label>
+                    <input type="number" name="amount" id="amount" class="input" placeholder="Enter amount" />
+                    <label for="password" class="label" placeholder="Enter your pin number">Pin Number</label>
+                    <input type="password" id="password" class="input" placeholder="Enter your pin" />
+                    <button class="btn bg-blue-600 rounded-3xl text-white mt-4">Withdraw Money</button>
+                </fieldset>
+            </div>
+        </div>
+    </section>
     <script>
         document.getElementById('logout-btn').addEventListener('click', function (value) {
             event.preventDefault();
             window.location.href = 'index.html';
         })
 
-        document.getElementById('add-money').addEventListener('click', function (value) {
+        let latestPaymentSection = document.getElementById('latest-payment-section');
+        let addMoneySection = document.getElementById('add-money-section');
+        let cashOutSection = document.getElementById('cash-out-section');
+        document.getElementById('add-money').addEventListener('click', function (event) {
             event.preventDefault();
-            let latestPaymentSection = document.getElementById('latest-payment-section');
-            let addMoneySection = document.getElementById('add-money-section');
-            if (latestPaymentSection.style.display === 'block', addMoneySection.style.display === 'none') {
-                latestPaymentSection.style.display = 'none';
-                addMoneySection.style.display = 'block';
-                document.getElementById('add-money-text').textContent = "Go Back";
+            if (latestPaymentSection.style.display === 'block') {
+                if (addMoneySection.style.display === 'none') {
+                    latestPaymentSection.style.display = 'none';
+                    addMoneySection.style.display = 'block';
+                    document.getElementById('cash-out-text').textContent = "Cash Out";
+                    document.getElementById('add-money-text').textContent = "Go Back";
+                }
+                else{
+                    latestPaymentSection.style.display = 'block';
+                    addMoneySection.style.display = 'none';
+                }
             }
             else {
                 latestPaymentSection.style.display = 'block';
                 addMoneySection.style.display = 'none';
                 document.getElementById('add-money-text').textContent = "Add Money";
-
+            }
+        })
+        document.getElementById('cash-out').addEventListener('click', function (event) {
+            event.preventDefault();
+            if (latestPaymentSection.style.display === 'block') {
+                latestPaymentSection.style.display = 'none';
+                cashOutSection.style.display = 'block';
+                document.getElementById('add-money-text').textContent = "Add Money";
+                document.getElementById('cash-out-text').textContent = "Go Back";
+            }
+            else {
+                cashOutSection.style.display = 'none';
+                latestPaymentSection.style.display = 'block';
+                document.getElementById('cash-out-text').textContent = "Cash Out";
             }
         })
     </script>
