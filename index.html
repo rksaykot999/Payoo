@@ -9,11 +9,13 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
         body {
             font-family: 'Outfit', sans-serif;
         }
     </style>
 </head>
+
 <body class="bg-base-200 max-w-md min-h-screen mx-auto rounded-lg">
     <section class="p-6 pt-10 mx-auto">
         <h3 class="text-3xl font-bold mx-auto pb-5 text-center">Payoo Mobile app</h3>
@@ -26,14 +28,33 @@
                         <input id="phone-number" type="number" class="input" value="01981736667"
                             placeholder="Phone Number" required />
                         <label class="label">Password</label>
-                        <input value="123" id="password" type="password" class="input" placeholder="Password" required />
+                        <input value="123" id="password" type="password" class="input" placeholder="Password"
+                            required />
                         <div><a class="link link-hover">Forgot password?</a></div>
                         <button type="submit" id="login-btn" class="btn btn-neutral mt-4">Login</button>
                     </fieldset>
             </form>
         </div>
     </section>
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('login-btn').addEventListener('click', function (event) {
+            event.preventDefault();
+            let phone = document.getElementById('phone-number').value;
+            let password = document.getElementById('password').value;
+            password = parseInt(password);
+            if (phone.length == 11) {
+                if (password == 123) {
+                    window.location.href = "main.html";
+                }
+                else {
+                    alert("Incorrect password.");
+                }
+            }
+            else {
+                alert("Phone number must be 11 digits long.");
+            }
+        })
+    </script>
 </body>
 
 </html>

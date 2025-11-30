@@ -117,14 +117,14 @@
             </div>
         </div>
     </section>
-    <section id="add-money-section" class="hidden mt-5  p-4 px-5">
+    <section id="add-money-section" class="mt-5  p-4 px-5">
         <h1 class="font-bold text-2xl mb-5">Add Money</h1>
         <div class="card bg-base-100 w-full max-w-sm shrink-0 mx-auto">
             <div class="card-body">
                 <fieldset class="fieldset">
                     <label for="bank">Bank</label>
-                    <select name="bank" id="bank">
-                        <option value="">---Select---</option>
+                    <select class="select" name="bank" id="bank">
+                        <option disabled selected>---Select---</option>
                         <option value="">Bkash</option>
                         <option value="">Nagad</option>
                         <option value="">Rocket</option>
@@ -135,117 +135,41 @@
                     <label for="amount">Amount to Add</label>
                     <input type="number" name="amount" id="add-amount" class="input" placeholder="Enter amount" />
                     <label for="password" class="label" placeholder="Enter your pin number">Pin Number</label>
-                    <input type="password" id="password" class="input" placeholder="Enter your pin" />
+                    <input value="123" type="password" id="pin" class="input" placeholder="Enter your pin" />
                     <button id="add-btn" class="btn bg-blue-600 rounded-3xl text-white mt-4">Add Money</button>
                 </fieldset>
             </div>
         </div>
     </section>
-    <section id="cash-out-section" class="hidden mt-5  p-4 px-5">
+    <section id="cash-out-section" class="mt-5  p-4 px-5">
         <h1 class="font-bold text-2xl mb-5">Cashout Money</h1>
         <div class="card bg-base-100 w-full max-w-sm shrink-0 mx-auto">
             <div class="card-body">
                 <fieldset class="fieldset">
                     <label for="bank">Bank</label>
-                    <select name="bank" id="bank">
-                        <option value="">---Select---</option>
+                    <select class="select" name="bank" id="bank">
+                        <option disabled selected value="">---Select---</option>
                         <option value="">Bkash</option>
                         <option value="">Nagad</option>
                         <option value="">Rocket</option>
                     </select>
                     <label for="ac-number">Account Number</label>
-                    <input type="number" id="ac-number" class="input" placeholder="Enter your account number" />
+                    <input value="01981736667" type="number" id="ac-number" class="input"
+                        placeholder="Enter your account number" />
                     <label for="amount">Amount to Add</label>
                     <input type="number" name="amount" id="withdraw-amount" class="input" placeholder="Enter amount" />
                     <label for="pin" class="label" placeholder="Enter your pin number">Pin Number</label>
-                    <input type="password" id="pin" class="input" placeholder="Enter your pin" />
+                    <input value="123" type="password" id="pin" class="input" placeholder="Enter your pin" />
                     <button id="withdraw-btn" class="btn bg-blue-600 rounded-3xl text-white mt-4">Withdraw
                         Money</button>
                 </fieldset>
             </div>
         </div>
     </section>
+    <script src="script.js"></script>
     <script>
         document.getElementById('logout-btn').addEventListener('click', function (value) {
-            event.preventDefault();
             window.location.href = 'index.html';
-        })
-
-        //Add Money
-        let latestPaymentSection = document.getElementById('latest-payment-section');
-        let addMoneySection = document.getElementById('add-money-section');
-        let cashOutSection = document.getElementById('cash-out-section');
-        var mainAmount = document.getElementById('main-amount').textContent;
-        mainAmount = parseInt(mainAmount);
-
-        let witdhdrawAmount = document.getElementById('withdraw-amount').value;
-        witdhdrawAmount = parseInt(witdhdrawAmount);
-
-
-        document.getElementById('add-money').addEventListener('click', function (event) {
-            event.preventDefault();
-            if (latestPaymentSection.style.display === 'block') {
-                if (addMoneySection.style.display === 'none') {
-                    latestPaymentSection.style.display = 'none';
-                    addMoneySection.style.display = 'block';
-                    document.getElementById('cash-out-text').textContent = "Cash Out";
-                    document.getElementById('add-money-text').textContent = "Go Back";
-                }
-                else {
-                    latestPaymentSection.style.display = 'block';
-                    addMoneySection.style.display = 'none';
-                }
-            }
-            else {
-                latestPaymentSection.style.display = 'block';
-                addMoneySection.style.display = 'none';
-                document.getElementById('add-money-text').textContent = "Add Money";
-            }
-        })
-        //Add Money button
-        document.getElementById('add-btn').addEventListener('click', function (event) {
-            event.preventDefault();
-            let addAmount = document.getElementById('add-amount').value;
-            addAmount = parseInt(addAmount);
-            let totalAmount = mainAmount + addAmount;
-            if (pin = 123){
-                document.getElementById('main-amount').textContent = totalAmount;
-                alert("Money added successfully!");
-            }
-            else{
-                alert("Wrong pin number!");
-
-            }  
-        })
-
-        //Cash Out
-        document.getElementById('cash-out').addEventListener('click', function (event) {
-            event.preventDefault();
-            if (latestPaymentSection.style.display === 'block') {
-                latestPaymentSection.style.display = 'none';
-                cashOutSection.style.display = 'block';
-                document.getElementById('add-money-text').textContent = "Add Money";
-                document.getElementById('cash-out-text').textContent = "Go Back";
-            }
-            else {
-                cashOutSection.style.display = 'none';
-                latestPaymentSection.style.display = 'block';
-                document.getElementById('cash-out-text').textContent = "Cash Out";
-            }
-        })
-        //Cash Out button
-        document.getElementById('withdraw-btn').addEventListener('click', function (event){
-            event.preventDefault();
-            let witdhdrawAmount = document.getElementById('withdraw-amount').value;
-            witdhdrawAmount = parseInt(witdhdrawAmount);
-            let totalAmount = mainAmount- witdhdrawAmount;
-            if(pin = 1234){
-                document.getElementById('main-amount').innerText = totalAmount;
-                alert("Cashout successfully!")
-            }
-            else{
-                alert("Wrong pin number!");
-            }
         })
     </script>
 </body>
